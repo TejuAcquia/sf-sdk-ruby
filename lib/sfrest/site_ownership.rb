@@ -67,5 +67,17 @@ module SFRest
 
       @conn.post("/api/v1/site-ownership/#{site_id}", payload.to_json)
     end
+
+    # Check if a username or email address corresponds to a valid user
+    # @param [String] recipient.
+    #
+    # @return [Array] an array containing the message given by the server.
+    def transfer_site_check_recipient_using_email_username(recipient)
+      payload = {
+        'recipient' => recipient
+      }
+
+      @conn.post("/transfer-site/check-recipient", payload.to_json)
+    end
   end
 end
