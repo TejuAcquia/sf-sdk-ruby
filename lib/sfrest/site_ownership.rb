@@ -73,11 +73,7 @@ module SFRest
     #
     # @return [Array] an array containing the message given by the server.
     def transfer_site_check_recipient_using_email_username(recipient)
-      payload = {
-        'recipient' => recipient
-      }
-
-      @conn.post("/transfer-site/check-recipient", payload.to_json)
+      @conn.post("/transfer-site/check-recipient?recipient=#{recipient}")
     end
   end
 end
